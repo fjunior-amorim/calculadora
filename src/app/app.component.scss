@@ -1,0 +1,108 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #606060;
+
+  .calculadora {
+    width: 25%;
+    height: 78%;
+    padding: 40px 20px;
+    border-radius: 24px;
+    position: relative;
+    background: var(--background-200);
+    text-align: center;
+    box-shadow: 0px 6px 8px rgba(54, 54, 54, 0.637),
+      -3px -3px 8px rgba(49, 49, 49, 0.548),
+      inset 3px 3px 6px rgba(54, 54, 54, 0.637),
+      inset -3px -3px 6px rgba(49, 49, 49, 0.548);
+
+    .marca {
+      position: relative;
+      bottom: 1rem;
+      font-family: Verdana, sans-serif;
+      color: rgba(36, 35, 35, 0.63);
+      font-weight: 500;
+      font-size: 14px;
+
+      span {
+        font-family: "Calculadora";
+        color: var(--background-500);
+        font-weight: 600;
+      }
+      
+    }
+    .tela {
+      width: 95%;
+      height: 23%;
+      margin: 0 auto;
+      padding: 7px 10px;
+      border-radius: 12px;
+      position: relative;
+      background: var(--background-300);
+      border: 6px solid rgba(112, 112, 112, 0.055);
+      background-image: linear-gradient(-40deg, rgba(63, 63, 63, 0.322),rgb(247, 246, 246),rgba(82, 81, 81, 0.39));
+      box-shadow: inset 4px 4px 4px rgba(29, 29, 29, 0.329),
+        inset -4px -4px 4px rgba(26, 26, 26, 0.342),
+         4px 4px 6px rgba(61, 61, 61, 0.329),
+         -2px -2px 6px rgba(26, 26, 26, 0.342);
+    }
+    .date {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: "Calculadora";
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      color: var(--background-600);
+    }
+    .numeros {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: right;
+      font-family: "Calculadora";
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      color: rgba(46, 46, 46, 0.678);
+    }
+  }
+  .teclado {
+    display: grid;
+    grid-template-rows: repeat(5fr);
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 30px;
+    align-items: center;
+    gap: 10px;
+
+    button {
+      padding: 10px;
+      border-radius: 12px;
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--color-white);
+      background: var(--background-600);
+      border-color: var(--background-200);
+      height: 50px;
+      transition: all 2s;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .btn-adicao {
+      grid-column: 4/5;
+      grid-row: 4/6;
+      height: 100%;
+    }
+
+    .btn-AC,
+    .btn-CE {
+      background: var(--background-500);
+    }
+  }
+}

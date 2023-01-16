@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'Calculadora';
+    src: url(./assets/fonts/Calculator.ttf);
+}
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+:root {
+    --background-200: #ececec;
+    --background-300: #f0fab8;
+    --background-400:  #d9d9d9;
+    --background-500: #9D9F92;
+    --background-600: #606060;
+    --background-500: #ff7e23;
+
+    --color-white: #ffffff;
+    
+}
