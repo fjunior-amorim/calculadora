@@ -1,33 +1,50 @@
 <div class="container">
   <div class="calculadora">
-    <h5 class="marca"><span>FJ</span>code</h5>
+    <h5 class="marca">
+      <span>FJ</span>
+      code
+    </h5>
     <div class="tela">
       <div class="date">
-       <p>{{ hora }}: {{ minutos }}</p> 
-       <p>{{ mes }} {{ ano }}</p>
+        <p>{{ hora }}:{{ minutos }}</p>
+        <p>{{ mes }} {{ ano }}</p>
       </div>
       <div class="numeros">
-        <h1 *ngFor="let num of currentOperationText">{{ num }}</h1>
+        <h1 *ngFor="let num of showScreen">{{ num }}</h1>
       </div>
     </div>
-    
-    <div class="teclado" #buttons >
-      <button class="btn-AC" #btnAC (click)="getValue(btnAC.innerText)">AC</button>
-      <button class="btn-CE" #btnCE (click)="getValue(btnCE.innerText)">CE</button>
+
+    <div class="teclado" #buttons>
+      <button class="btn-AC" #btnAC (click)="getValue(btnAC.innerText)">
+        AC
+      </button>
+      <button class="btn-CE" #btnCE (click)="getValue(btnCE.innerText)">
+        CE
+      </button>
       <button #btnPorcet (click)="getValue(btnPorcet.innerText)">%</button>
-      <button #btnDivisao (click)="getValue(btnDivisao.innerText)"> ÷ </button> 
+      <button #btnDivisao (click)="getValue(btnDivisao.innerText)">÷</button>
       <button #btn07 (click)="getValue(btn07.innerText)">7</button>
       <button #btn08 (click)="getValue(btn08.innerText)">8</button>
       <button #btn09 (click)="getValue(btn09.innerText)">9</button>
-      <button #btnMultiplic (click)="getValue(btnMultiplic.innerText)">X</button>
+      <button #btnMultiplic (click)="getValue(btnMultiplic.innerText)">
+        X
+      </button>
       <button #btn04 (click)="getValue(btn04.innerText)">4</button>
       <button #btn05 (click)="getValue(btn05.innerText)">5</button>
       <button #btn06 (click)="getValue(btn06.innerText)">6</button>
-      <button #btnsubtracao (click)="getValue(btnsubtracao.innerText)" > - </button>
+      <button #btnsubtracao (click)="getValue(btnsubtracao.innerText)">
+        -
+      </button>
       <button #btn01 (click)="getValue(btn01.innerText)">1</button>
       <button #btn02 (click)="getValue(btn02.innerText)">2</button>
       <button #btn03 (click)="getValue(btn03.innerText)">3</button>
-      <button  class="btn-adicao" #btnAdicao (click)="getValue(btnAdicao.innerText)">+</button>
+      <button
+        class="btn-adicao"
+        #btnAdicao
+        (click)="getValue(btnAdicao.innerText)"
+      >
+        +
+      </button>
       <button #btnZero (click)="getValue(btnZero.innerText)">0</button>
       <button #btnPonto (click)="getValue(btnPonto.innerText)">.</button>
       <button #btnIgual (click)="getValue(btnIgual.innerText)">=</button>
