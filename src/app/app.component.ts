@@ -87,15 +87,15 @@ export class AppComponent implements OnInit {
       this.currentOperationText = [];
     }
   }
-  //=============== leia aqui ================
-  //parei na parte em que eu posso alterar a operação 
-  //este metodo ira mudar a operação do valor digitado 
+  
   changeOperation(operation: string){
-    const mathOperation = ["*", "/", "+", "-"];
+    const mathOperation = ["+", "-" ,"x", "÷"];
     if(!mathOperation.includes(operation)) {
       return;
     }
-    //this.previousOperationText.push(this.previousOperationText.slice(0 , -1)[-1]) + operation;
+    this.showScreen.pop();
+    this.showScreen.push(operation);
+    this.previousOperationText = (this.previousOperationText);
   }
 
   /**
@@ -105,12 +105,12 @@ export class AppComponent implements OnInit {
     //verificar se o current esta fazio
     if(this.currentOperationText.length === 0) {
       //chegar operação
-      if(this.previousOperationText.length > 0){
+      if(this.previousOperationText.length !== 0){
         this.changeOperation(operation);
       }
       return;
     }
-
+    
     let operationValue;
     const previous = +this.previousOperationText.toLocaleString();
     const current = +this.currentOperationText.toLocaleString().replace(/,/g, '');
@@ -127,7 +127,7 @@ export class AppComponent implements OnInit {
         this.updatedScreen(operationValue, operation, current, previous);
         break;
 
-      case '*':
+      case 'x':
         operationValue = previous * current;
         this.updatedScreen(operationValue, operation, current, previous);
         break;
