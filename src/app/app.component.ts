@@ -1,3 +1,4 @@
+import { ArrayType } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -40,8 +41,8 @@ export class AppComponent implements OnInit {
    * esse metodo é resposavel por separar os numeros dos operadores.
    */
   getValue(valor: string) {
+    
     if (+valor >= 0 || valor === '.') {
-      //console.log("Number: "+ valor)
       this.addDigit(valor);
     } else {
       this.processOperation(valor);
@@ -57,7 +58,6 @@ export class AppComponent implements OnInit {
    * este metodo é responsavel para que o digito (.) não seja duplicado 
    */
   addDigit(digite: string) {
-    //console.log("" + digite);
     if (digite === '.' && this.currentOperationText.includes('.')) {
       return;
     }
@@ -72,14 +72,13 @@ export class AppComponent implements OnInit {
     current?: null | any,
     previous?: null | any
   ) {
-    //console.log(operationValue, operation, current, previous);
     if (operationValue === null || operationValue === undefined) {
       this.currentOperationText.push(this.currentOperation);
     } else {
       if (previous === 0) {
         operationValue = current;
-        //console.log(operationValue)
       }
+      
       this.showScreen = []
       this.previousOperationText = operationValue;
       this.showScreen.push(this.previousOperationText.toString());
@@ -98,18 +97,43 @@ export class AppComponent implements OnInit {
     this.previousOperationText = (this.previousOperationText);
   }
 
+  delete() {
+    this.currentOperationText = this.currentOperationText.slice(0, -1);
+
+    if(this.showScreen.length > 1) {
+      this.showScreen.pop();
+    }else {
+      this.showScreen = [];
+      this.previousOperationText = [];
+    }
+  }
+
+  clearCalculator() {
+    this.currentOperationText = [];
+    this.previousOperationText = [];
+    this.showScreen = [];
+  }
+
+  equalOperatuon() {
+    const operation = this.showScreen[1];
+    this.processOperation(operation);
+    //this.showScreen.pop();
+    //this.currentOperationText = [];
+    //this.previousOperationText = [];
+  }
   /**
    *  este metodo é responsavel por chamar os medotos das operaçoes escolhidas
    */
   processOperation(operation: string) {
     //verificar se o current esta fazio
-    if(this.currentOperationText.length === 0) {
+    if(this.currentOperationText.length === 0 && operation !== 'CE' && operation !== 'CA'  && operation !== '=') {
       //chegar operação
       if(this.previousOperationText.length !== 0){
         this.changeOperation(operation);
       }
       return;
     }
+
     
     let operationValue;
     const previous = +this.previousOperationText.toLocaleString();
@@ -135,6 +159,15 @@ export class AppComponent implements OnInit {
       case '÷':
         operationValue = previous / current;
         this.updatedScreen(operationValue, operation, current, previous);
+        break;
+      case 'CE':
+        this.delete();
+        break;
+      case 'CA':
+        this.clearCalculator();
+        break;
+      case '=':
+        this.equalOperatuon();
         break;
       default:
         return;

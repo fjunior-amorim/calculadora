@@ -72,17 +72,19 @@
     }
   }
   .teclado {
+    width: 100%;
     display: grid;
     grid-template-rows: repeat(5fr);
     grid-template-columns: repeat(4, 1fr);
     margin-top: 30px;
     align-items: center;
+    justify-content: center;
     gap: 10px;
 
     button {
       padding: 10px;
       border-radius: 12px;
-      font-size: 24px;
+      font-size: 1.5em;
       font-weight: 500;
       color: var(--color-white);
       background: var(--background-600);
@@ -103,6 +105,68 @@
     .btn-AC,
     .btn-CE {
       background: var(--background-500);
+    }
+  }
+}
+@media screen and (min-width: 320px){
+  .container {
+    padding: 20px;
+
+    .calculadora {
+      width: 100%;
+      height: 90vh;
+    }
+  }
+}
+@media screen and (min-width: 425px){
+  .container {
+    .calculadora {
+      width: 95%;
+      height: 90vh;
+    }
+  }
+}
+@media screen and (min-width: 475px){
+  .container {
+    .calculadora {
+      width: 80%;
+      height: 90vh;
+
+      .teclado {
+        margin-top: 60px;
+      }
+    }
+  }
+}
+@media screen and (min-width: 560px){
+  .container {
+    .calculadora {
+      width: 70%;
+      height: 90vh;
+    }
+  }
+}
+@media screen and (min-width: 660px){
+  .container {
+    .calculadora {
+      width: 60%;
+      height: 90vh;
+    }
+  }
+}
+@media screen and (min-width: 768px){
+  .container {
+    .calculadora {
+      width: 50%;
+      height: 90vh;
+    }
+  }
+}
+@media screen and (min-width: 1024px){
+  .container {
+    .calculadora {
+      width: 30%;
+      height: 90vh;
     }
   }
 }
